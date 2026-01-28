@@ -1,0 +1,154 @@
+{
+  "bank_soal": [
+    {
+      "bab": "Kewirausahaan",
+      "pertanyaan": "Apa sebutan bagi orang yang berani membuka usaha sendiri?",
+      "jawaban_benar": "Wirausaha",
+      "pilihan": ["[Wirausaha]", "Karyawan", "Manajer", "Direktur"]
+    },
+    {
+      "bab": "Kewirausahaan",
+      "pertanyaan": "Apa modal utama selain uang untuk menjadi pengusaha?",
+      "jawaban_benar": "Niat dan Kreativitas",
+      "pilihan": ["Mobil Mewah", "[Niat dan Kreativitas]", "Gelar Sarjana", "Izin Orang Tua"]
+    },
+    {
+      "bab": "Peluang Usaha",
+      "pertanyaan": "Analisis SWOT, huruf 'S' (Strengths) artinya adalah...",
+      "jawaban_benar": "Kekuatan",
+      "pilihan": ["Kelemahan", "Ancaman", "[Kekuatan]", "Kesempatan"]
+    },
+    {
+      "bab": "Peluang Usaha",
+      "pertanyaan": "Melihat tren yang sedang viral untuk dijadikan bisnis disebut...",
+      "jawaban_benar": "Mencari Peluang",
+      "pilihan": ["[Mencari Peluang]", "Meniru Orang", "Kerja Sampingan", "Hobi"]
+    },
+    {
+      "bab": "Hak Kekayaan Intelektual",
+      "pertanyaan": "Simbol 'R' dalam lingkaran pada produk artinya adalah...",
+      "jawaban_benar": "Registered (Merek Terdaftar)",
+      "pilihan": ["Reject", "[Registered (Merek Terdaftar)]", "Rare", "Retail"]
+    },
+    {
+      "bab": "Hak Kekayaan Intelektual",
+      "pertanyaan": "Jika kamu menciptakan lagu, hak yang kamu dapatkan adalah...",
+      "jawaban_benar": "Hak Cipta",
+      "pilihan": ["Paten", "[Hak Cipta]", "Merek", "Rahasia Dagang"]
+    },
+    {
+      "bab": "Desain Produk",
+      "pertanyaan": "Apa fungsi utama kemasan selain mempercantik produk?",
+      "jawaban_benar": "Melindungi Produk",
+      "pilihan": ["Membuat mahal", "[Melindungi Produk]", "Menambah berat", "Mengelabui pembeli"]
+    },
+    {
+      "bab": "Desain Produk",
+      "pertanyaan": "Sketsa gambar awal sebelum membuat produk disebut...",
+      "jawaban_benar": "Desain",
+      "pilihan": ["[Desain]", "Laporan", "Iklan", "Nota"]
+    },
+    {
+      "bab": "Prototipe",
+      "pertanyaan": "Contoh produk yang dibuat pertama kali sebagai percobaan disebut...",
+      "jawaban_benar": "Prototipe",
+      "pilihan": ["Produk Masal", "Barang Bekas", "Sampel Gratis", "[Prototipe]"]
+    },
+    {
+      "bab": "Produksi Masal",
+      "pertanyaan": "Membuat barang dalam jumlah yang sangat banyak sekaligus disebut...",
+      "jawaban_benar": "Produksi Masal",
+      "pilihan": ["Produksi Eceran", "[Produksi Masal]", "Produksi Sampingan", "Produksi Rumahan"]
+    },
+    {
+      "bab": "Biaya Produksi",
+      "pertanyaan": "Biaya untuk membeli bahan baku pembuatan produk disebut...",
+      "jawaban_benar": "Biaya Bahan",
+      "pilihan": ["[Biaya Bahan]", "Biaya Sewa", "Biaya Listrik", "Biaya Bonus"]
+    },
+    {
+      "bab": "Pemasaran",
+      "pertanyaan": "Media sosial yang paling cocok untuk jualan produk visual adalah...",
+      "jawaban_benar": "Instagram/TikTok",
+      "pilihan": ["Kalkulator", "E-mail", "[Instagram/TikTok]", "Radio"]
+    },
+    {
+      "bab": "Laporan Keuangan",
+      "pertanyaan": "Jika pendapatan lebih besar dari pengeluaran, maka kita...",
+      "jawaban_benar": "Untung (Laba)",
+      "pilihan": ["Rugi", "[Untung (Laba)]", "Bangkrut", "Pas-pasan"]
+    },
+    {
+      "bab": "Laporan Keuangan",
+      "pertanyaan": "Alat untuk mencatat keluar masuknya uang disebut...",
+      "jawaban_benar": "Buku Kas",
+      "pilihan": ["Buku Gambar", "Buku Tulis", "[Buku Kas]", "Buku Novel"]
+    },
+    {
+      "bab": "Kewirausahaan",
+      "pertanyaan": "Sifat tidak mudah menyerah disebut...",
+      "jawaban_benar": "Pantang Menyerah",
+      "pilihan": ["Pesimis", "Pemalu", "[Pantang Menyerah]", "Penakut"]
+    },
+    {
+      "bab": "Pemasaran",
+      "pertanyaan": "Memberikan potongan harga agar pembeli tertarik disebut...",
+      "jawaban_benar": "Diskon",
+      "pilihan": ["Pajak", "[Diskon]", "Denda", "Cicilan"]
+    },
+    {
+      "bab": "Produksi",
+      "pertanyaan": "Orang yang memakai atau menggunakan produk disebut...",
+      "jawaban_benar": "Konsumen",
+      "pilihan": ["Produsen", "[Konsumen]", "Distributor", "Kurir"]
+    },
+    {
+      "bab": "Produksi",
+      "pertanyaan": "Orang yang menyalurkan barang dari pabrik ke toko disebut...",
+      "jawaban_benar": "Distributor",
+      "pilihan": ["Konsumen", "Koki", "[Distributor]", "Kasir"]
+    },
+    {
+      "bab": "Branding",
+      "pertanyaan": "Nama unik yang digunakan untuk mengenali suatu produk disebut...",
+      "jawaban_benar": "Merek",
+      "pilihan": ["[Merek]", "Harga", "Ukuran", "Warna"]
+    },
+    {
+      "bab": "Inovasi",
+      "pertanyaan": "Menciptakan sesuatu yang baru atau berbeda dari sebelumnya disebut...",
+      "jawaban_benar": "Inovasi",
+      "pilihan": ["Copy-Paste", "[Inovasi]", "Arsip", "Koleksi"]
+    },
+    {
+      "bab": "Risiko Usaha",
+      "pertanyaan": "Wirausahawan harus berani mengambil...",
+      "jawaban_benar": "Risiko",
+      "pilihan": ["Uang orang", "Jatah teman", "[Risiko]", "Libur panjang"]
+    },
+    {
+      "bab": "Peluang Usaha",
+      "pertanyaan": "Contoh peluang usaha di bidang jasa adalah...",
+      "jawaban_benar": "Bengkel Motor",
+      "pilihan": ["Jual Pulsa", "[Bengkel Motor]", "Jual Gorengan", "Jual Sepatu"]
+    },
+    {
+      "bab": "Evaluasi",
+      "pertanyaan": "Mengecek kembali kualitas produk sebelum dijual disebut...",
+      "jawaban_benar": "Quality Control",
+      "pilihan": ["Packing", "[Quality Control]", "Branding", "Shipping"]
+    },
+    {
+      "bab": "Pemasaran",
+      "pertanyaan": "Promosi dari mulut ke mulut dalam dunia bisnis disebut...",
+      "jawaban_benar": "Testimoni",
+      "pilihan": ["[Testimoni]", "Investasi", "Korupsi", "Negosiasi"]
+    },
+    {
+      "bab": "Kewirausahaan",
+      "pertanyaan": "Sikap jujur dalam berbisnis akan meningkatkan...",
+      "jawaban_benar": "Kepercayaan Pelanggan",
+      "pilihan": ["Harga barang", "Jumlah utang", "[Kepercayaan Pelanggan]", "Biaya pajak"]
+    }
+  ]
+}
