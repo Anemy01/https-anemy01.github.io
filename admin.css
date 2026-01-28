@@ -236,3 +236,128 @@ button:hover {
     width: 95%; /* Mengambil 95% lebar layar agar lega di samping */
     max-width: 1100px; /* Tapi tetap ada batas maksimal di laptop */
 }
+.materi-controls, .input-group {
+    display: flex;
+    flex-wrap: wrap; /* Supaya tombol gak tumpah di HP */
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    background: transparent;
+    border: 1px solid #00f2ff;
+    color: #00f2ff;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00f2ff;
+    color: #000;
+    box-shadow: 0 0 15px #00f2ff;
+}
+
+.btn-boot {
+    background: #00f2ff;
+    color: #000;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.btn-danger {
+    border-color: #ff0055;
+    color: #ff0055;
+    animation: pulse 1.5s infinite;
+}
+
+/* [08] - Animasi & Media Queries */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 0, 85, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 0, 85, 0); }
+}
+
+/* Loading Bar */
+.loading-bar {
+    width: 100%;
+    height: 4px;
+    background: #1a1c2c;
+    margin: 20px 0;
+}
+.loading-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: #00f2ff;
+    transition: width 2s linear;
+}
+
+/* Penyesuaian khusus untuk layar sangat kecil */
+@media (max-width: 480px) {
+    .login-box, .materi-centered-box { padding: 20px 15px; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.btn-danger {
+    background: #ff0055;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
+    transition: 0.3s;
+}
+
+.btn-danger:hover {
+    background: #ff4d88;
+    box-shadow: 0 0 20px #ff0055;
+    transform: scale(1.05);
+}
+
+.btn-back {
+    background: #333;
+    color: #00f2ff;
+    border: 1px solid #00f2ff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Perbaikan Kontainer Leaderboard agar Lebar dan Bisa Scroll */
+.leaderboard-table-container {
+    width: 100%;
+    overflow-x: auto; /* Scroll horizontal jika layar sangat kecil */
+    max-height: 400px; /* Batasi tinggi agar tidak tumpah */
+    overflow-y: auto; /* Scroll vertikal jika banyak kelompok */
+    margin: 20px 0;
+    padding: 0 10px;
+}
+
+/* Memastikan tabel mengambil seluruh lebar kotak */
+.leaderboard-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Memberi jarak antar baris agar tidak dempet */
+    text-align: center;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    padding: 15px 10px; /* Memberi ruang di dalam sel */
+    white-space: nowrap; /* Mencegah teks turun ke bawah/patah baris */
+}
+
+/* Membuat Kotak Wrapper Lebih Lebar */
+.centered-wrapper {
+    width: 95%; /* Mengambil 95% lebar layar agar lega di samping */
+    max-width: 1100px; /* Tapi tetap ada batas maksimal di laptop */
+}
