@@ -5,35 +5,38 @@
 let generatedQuestions = [];
 let currentQIndex = 0;
 let score = 0;
-let timeLeft = 30; 
+let timeLeft = 30;
 let timerInterval;
 
+// --- TAMBAHAN VARIABEL UNTUK DURASI ---
+let startTime;
+
 // --- AUDIO SETUP ---
-const bgm = new Audio('bgm_public.mp3'); 
-const sfxCorrect = [new Audio('Benar1.mp3'), new Audio('benar2.mp3'), new Audio('benar3.mp3'), new Audio('benar4.mp3'), new Audio('benar5.mp3')]; 
+const bgm = new Audio('bgm_public.mp3');
+const sfxCorrect = [new Audio('Benar1.mp3'), new Audio('benar2.mp3'), new Audio('benar3.mp3'), new Audio('benar4.mp3'), new Audio('benar5.mp3')];
 const sfxWrong = [new Audio('salah1.mp3'), new Audio('salah2.mp3'), new Audio('salah3.mp3'), new Audio('salah4.mp3'), new Audio('salah5.mp3')];
 const songVictory = new Audio('victory.mp3');
 const songGameOver = new Audio('gameover.mp3');
 
-// [1] INITIALIZE SYSTEM (Ambil dari soal.json)
+// [1] INITIALIZE SYSTEM
 window.onload = async () => {
     try {
-        // Mengambil bank soal dari file JSON eksternal
         const response = await fetch('soal.json');
         const data = await response.json();
         
         if (data.bank_soal) {
-            // Ambil 10 soal secara acak agar tiap kelompok beda soal
+            allQuestions = data.bank_soal;
+        }
+        
+        if (data.bank_soal) {
             generatedQuestions = data.bank_soal
                 .sort(() => 0.5 - Math.random())
                 .slice(0, 10);
             
-            // Putar BGM (volume kecil agar tidak berisik)
             bgm.loop = true;
             bgm.volume = 0.5;
             bgm.play().catch(e => console.log("Menunggu interaksi user untuk BGM"));
-
-            // Langsung arahkan ke layar input nama kelompok
+            
             showSection('name-screen');
         }
     } catch (e) {
@@ -50,11 +53,13 @@ function startQuizWithGroup() {
         alert("Isi dulu nama kelompoknya, mas/mbak!");
         return;
     }
-
-    // Simpan nama di localStorage sementara
+    
     localStorage.setItem('current_group_name', nameInput);
     score = 0;
     currentQIndex = 0;
+    
+    // --- CATAT WAKTU MULAI DI SINI ---
+    startTime = Date.now();
     
     showSection('quiz-screen');
     loadQuestion();
@@ -63,7 +68,7 @@ function startQuizWithGroup() {
 // [3] LOAD SOAL & TIMER
 function loadQuestion() {
     clearInterval(timerInterval);
-    timeLeft = 30; 
+    timeLeft = 30;
     
     const q = generatedQuestions[currentQIndex];
     document.getElementById('q-count').innerText = `ANALYSIS: ${currentQIndex + 1}/10`;
@@ -71,25 +76,19 @@ function loadQuestion() {
     
     const container = document.getElementById('options-container');
     container.innerHTML = "";
-
-    // Kita acak pilihan jawabannya biar gak hapalan posisi
+    
     const shuffledChoices = [...q.pilihan].sort(() => 0.5 - Math.random());
-
+    
     shuffledChoices.forEach((pil) => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
-        
-        // LOGIKA AI: Cek apakah pilihan ini adalah jawaban benar (punya tanda [])
         const isCorrect = pil.includes("[") && pil.includes("]");
-        
-        // Hilangkan tanda [] sebelum ditampilkan ke layar (agar rapi)
         const cleanText = pil.replace("[", "").replace("]", "");
         btn.innerText = cleanText;
-        
         btn.onclick = () => checkAnswer(isCorrect);
         container.appendChild(btn);
     });
-
+    
     startTimer();
 }
 
@@ -99,19 +98,86 @@ function startTimer() {
     
     timerInterval = setInterval(() => {
         timeLeft--;
-        timerText.innerText = timeLeft + "s";
+        if (timerText) timerText.innerText = timeLeft + "s";
+        if (fillBar) fillBar.style.width = (timeLeft / 30 * 100) + "%";
         
-        // Update bar visual mengecil
-        if (fillBar) {
-            fillBar.style.width = (timeLeft / 30 * 100) + "%";
-        }
-
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             playSfx(sfxWrong);
             nextQuestion();
         }
     }, 1000);
+}
+
+// [4] CEK JAWABAN
+function checkAnswer(isCorrect) {
+    clearInterval(timerInterval);
+    if (isCorrect) {
+        score += 10;
+        playSfx(sfxCorrect);
+    } else {
+        playSfx(sfxWrong);
+    }
+    setTimeout(nextQuestion, 1200);
+}
+
+function playSfx(audioArray) {
+    const random = audioArray[Math.floor(Math.random() * audioArray.length)];
+    random.currentTime = 0;
+    random.play();
+}
+
+function nextQuestion() {
+    currentQIndex++;
+    if (currentQIndex < 10) {
+        loadQuestion();
+    } else {
+        finishQuiz();
+    }
+}
+
+// [5] LAYAR SKOR & PENYIMPANAN DATA (DURASI KERJA)
+function finishQuiz() {
+    bgm.pause();
+    clearInterval(timerInterval);
+    
+    // --- HITUNG DURASI TOTAL ---
+    const endTime = Date.now();
+    const totalSeconds = Math.floor((endTime - startTime) / 1000);
+    const menit = Math.floor(totalSeconds / 60);
+    const detik = totalSeconds % 60;
+    const durasiString = `${menit}m ${detik}s`; // Contoh: "1m 15s"
+    
+    showSection('score-screen');
+    document.getElementById('final-score').innerText = score;
+    
+    const groupName = localStorage.getItem('current_group_name') || "Anonymous";
+    let leaderboard = JSON.parse(localStorage.getItem('leaderboard_data')) || [];
+    
+    // SIMPAN DURASI, BUKAN JAM
+    leaderboard.push({
+        nama: groupName,
+        skor: score,
+        waktu: durasiString
+    });
+    
+    localStorage.setItem('leaderboard_data', JSON.stringify(leaderboard));
+    localStorage.setItem('redirect_to_leaderboard', 'true');
+    
+    if (score >= 70) songVictory.play();
+    else songGameOver.play();
+}
+
+function closeSessiAndShowLeaderboard() {
+    localStorage.setItem('target_section', 'leaderboard-screen');
+    window.location.href = "admin.html";
+}
+
+function showSection(id) {
+    document.querySelectorAll('section').forEach(s => s.style.display = 'none');
+    const target = document.getElementById(id);
+    if (target) target.style.display = 'block';
+        }    }, 1000);
 }
 
 // [4] CEK JAWABAN & SFX
